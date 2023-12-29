@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['0']
+            capabilities: [gpu]
+    container_name: invoke
+    image: invoke:latest
+    environment:
+      - DEBIAN_FRONTEND noninteractive 
+      - PIP_PREFER_BINARY=1
+      - ROOT=/InvokeAI
+    ports:
+      - "7861:7861"
+    restart: always

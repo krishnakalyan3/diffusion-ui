@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['0']
+            capabilities: [gpu]
+    container_name: diffuzers
+    image: diffuzers:latest
+    environment:
+      - DEBIAN_FRONTEND noninteractive 
+      - PIP_PREFER_BINARY=1
+      - ROOT=/diffuzers
+    ports:
+      - "7862:7862"
+    restart: always
