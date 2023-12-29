@@ -10,7 +10,9 @@ RUN apt install -y build-essential wget git python3 python3-pip
 
 ENV ROOT=/diffuzers
 RUN mkdir -p $ROOT
-RUN pip install diffuzers "altair<5"
+# git@github.com:abhishekkrthakur/diffuzers.git
+RUN pip install git+https://github.com/abhishekkrthakur/diffuzers.git@main "altair<5"
+RUN pip install --upgrade accelerate
 
 # Install Packages
 CMD diffuzers app --port 7862 --host 0.0.0.0 --device cuda:0

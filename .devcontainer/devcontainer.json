@@ -3,7 +3,7 @@
 	"initializeCommand": "ls",
 	"build": {
 		"context": "..",
-		"dockerfile": "../invoke/Dockerfile",
+		"dockerfile": "../diffuzers/Dockerfile",
 	  },
 	  "runArgs": [
 		"--gpus",
