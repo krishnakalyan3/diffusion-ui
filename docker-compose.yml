@@ -10,6 +10,8 @@ services:
             capabilities: [gpu]
     container_name: comfy
     image:  comfyui:latest
+    volumes:
+      - "/home/krishna/mount_docker/comfy/output:/comfyui/ComfyUI/output"
     environment:
       - DEBIAN_FRONTEND noninteractive 
       - PIP_PREFER_BINARY=1
