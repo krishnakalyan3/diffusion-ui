@@ -1,0 +1,12 @@
+{
+	"name": "UI",
+	"initializeCommand": "ls",
+	"build": {
+		"context": "..",
+		"dockerfile": "../invoke/Dockerfile",
+	  },
+	  "runArgs": [
+		"--gpus",
+		"all"
+	]
+}
