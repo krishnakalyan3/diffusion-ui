@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['0']
+            capabilities: [gpu]
+    container_name: comfy
+    image:  comfyui:latest
+    environment:
+      - DEBIAN_FRONTEND noninteractive 
+      - PIP_PREFER_BINARY=1
+      - ROOT=/comfyui
+    ports:
+      - "7860:7860"
